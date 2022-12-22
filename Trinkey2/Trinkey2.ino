@@ -2,11 +2,16 @@
 //Board -> Raspberry Pi RP2040 Boards -> Adafruit Trinkey RP2040 QT
 
 #include <Adafruit_NeoPixel.h>
+#include <Mouse.h>
 
 // How many internal neopixels do we have? some boards have more than one!
 #define NUMPIXELS        1
 
 Adafruit_NeoPixel pixels(NUMPIXELS, PIN_NEOPIXEL, NEO_GRB + NEO_KHZ800);
+
+unsigned long timer = 0;
+unsigned long blinkDelay = 500;
+unsigned long timerInterval = 60000;
 
 // the setup routine runs once when you press reset:
 void setup() {
@@ -26,16 +31,28 @@ void setup() {
 
 // the loop routine runs over and over again forever:
 void loop() {
-  // say hi
-  Serial.println("Hello!");
-  
-  // set color to red
-  pixels.fill(0xFF0000);
+  MoveCycle();
+}
+
+void Blink()
+{
+  // set color
+  pixels.fill(0x00FF00);
   pixels.show();
-  delay(500); // wait half a second
+  delay(blinkDelay); // wait half a second
 
   // turn off
   pixels.fill(0x000000);
   pixels.show();
-  delay(500); // wait half a second
+  delay(blinkDelay);
+}
+
+void MoveCycle()
+{
+	if (millis() >= timer)
+	{
+		timer += timerInterval;
+		Mouse.move(1, 1, 0);
+    Blink();
+	}
 }
