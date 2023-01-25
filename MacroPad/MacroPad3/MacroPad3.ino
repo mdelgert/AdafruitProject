@@ -28,7 +28,7 @@ void setup() {
   //while (!Serial) { delay(10); }     // wait till serial port is opened
   delay(100);  // RP2040 delay is not a bad idea
 
-  Serial.println("Adafruit Macropad with RP2040");
+  Serial.println("Macropad");
 
   // start pixels!
   pixels.begin();

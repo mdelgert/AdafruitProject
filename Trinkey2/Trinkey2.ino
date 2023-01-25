@@ -1,5 +1,7 @@
 //https://learn.adafruit.com/adafruit-trinkey-qt2040/blink-2
 //Board -> Raspberry Pi RP2040 Boards -> Adafruit Trinkey RP2040 QT
+//https://forum.arduino.cc/t/change-the-name-of-arduino-pro-micro-shown-in-the-devices-and-printers/660942/4
+//C:\Users\mdelgert\AppData\Local\Arduino15\packages\rp2040\hardware\rp2040\2.6.4
 
 #include <Adafruit_NeoPixel.h>
 #include <Mouse.h>
